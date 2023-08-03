@@ -1,8 +1,8 @@
 # myKlipperE3v2
 These are my klipper-settings: for **Ender 3 v2**, minimus, BLTouch, mesh bed leveling 5x5
 
-## Thing that helped me set this up:
-1. https://www.reddit.com/r/klippers/comments/kj2h5r/stepbystep_guide_for_ender_3_v2_klipper_w_bltouch/
+## Resources that helped me set this up:
+1. My starting point: https://www.reddit.com/r/klippers/comments/kj2h5r/stepbystep_guide_for_ender_3_v2_klipper_w_bltouch/
 2. https://gist.github.com/prcutler/9360ab01795c55f37a1063159c72813d
 
 ## Specific custom mods I had to adjust for:
@@ -15,3 +15,13 @@ These are my klipper-settings: for **Ender 3 v2**, minimus, BLTouch, mesh bed le
 
 ## Adjustments I had to make:
 
+1. This line in resource 1:
+
+```
+z_hop: 10                 # Move up 10mm z_hop_speed: 5
+```
+shouldn't be on one line, now "z_hop_speed: 5" is commented out, it should have been:
+```
+z_hop: 10                 # Move up 10mm 
+z_hop_speed: 5
+```
