@@ -4,12 +4,13 @@ These are my klipper-settings: for **Ender 3 v2**, minimus, BLTouch, mesh bed le
 ## My hardware setup:
 
 - Creality Ender 3 v2
+	- Motherboard: 4.2.2
+	- Old screen type (replaced by BTT HDMI5 V1.1 Touchscreen after installing klipper): DACAI
 - Raspberry Pi 4
 - Sabrent HB-UMP3 USB-hub + power
 - BTT HDMI5 V1.1 Touchscreen
 - BLtouch
 -Logitech C920
-
 
 ## Resources that helped me set this up:
 1. My starting point: https://www.reddit.com/r/klippers/comments/kj2h5r/stepbystep_guide_for_ender_3_v2_klipper_w_bltouch/
@@ -25,7 +26,7 @@ These are my klipper-settings: for **Ender 3 v2**, minimus, BLTouch, mesh bed le
 
 ## Adjustments I had to make:
 
-### This line in resource 1:
+### 1. This line in resource 1:
 
 ```
 z_hop: 10                 # Move up 10mm z_hop_speed: 5
@@ -36,7 +37,25 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-### 
+### 2. Z calibrate: Z "Move Out of Range"-error:
+Because there is a z offset between the BLTouch & the nozzle you have to adjust the Z-height, I did this on the screen but got this error because under [stepper_z] position_min was set to 0. But I had to move beyond that point to get my nozzle further down than the point the BLTouch hit the bed.
+
+```
+[stepper_z]
+...
+position_min: -4
+...
+```
+### 3. Bed leveling X "Move Out of Range"-error:
+
+Because of my Minimus setup, I had a BLTouch offset and to reach the last bed leveling mesh point, the suggested setting was to restrictive, so I adjusted the max position for the stepper_x to 249 (do not exceed 249!).
+
+```
+[stepper_x]
+...
+position_max: 249
+...
+```
 
 ## Extra notes that are useful:
 
@@ -48,3 +67,4 @@ z_hop_speed: 5
 ### - Links to the your Mainsail/FLuidd GUI
 1. http://my.mainsail.xyz/
 2. http://app.fluidd.xyz
+
