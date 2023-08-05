@@ -41,7 +41,8 @@ z_hop_speed: 5
 ```
 
 ### 2. Z calibrate: Z "Move Out of Range"-error:
-Because there is a z offset between the BLTouch & the nozzle you have to adjust the Z-height, I did this on the screen but got this error because under [stepper_z] position_min was set to 0. But I had to move beyond that point to get my nozzle further down than the point the BLTouch hit the bed.  
+Because there is a z offset between the BLTouch & the nozzle you have to adjust the Z-height, I did this on the screen but got this error because under [stepper_z] position_min was set to 0. But I had to move beyond that point to get my nozzle further down than the point the BLTouch hit the bed. 
+ 
 (Don't add the "...", they are just there to indecate other settings)
 
 ```
@@ -61,8 +62,6 @@ Because of my Minimus setup, I had a BLTouch offset and to reach the last bed le
 position_max: 249
 ...
 ```
-
-
 
 ## Extra notes that are useful:
 
